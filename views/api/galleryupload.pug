@@ -1,0 +1,78 @@
+extends ../layout
+
+block content
+  .page-header
+    //h2
+    //  i.fa.fa-upload
+    //  | Image Upload
+
+
+
+
+  .container
+    h2 Gallery Dashboard
+    br
+    .row
+      .col-sm-12.col-lg-6
+        h3 Image Upload
+        form(role='form', enctype='multipart/form-data', method='POST')
+          | Title:
+          br
+          input(type='text', name='imagetitle')
+          br
+          | Description:
+          br
+          textarea(name='description', rows='6', cols='40')
+          .form-group
+            label.control-label File Input
+            input(type='file', name='myFile')
+          button.btn.btn-primary(type='submit') Submit
+      .col-sm-12.col-lg-6
+        p Upload Preview
+        img(src='' alt='upload image')
+    br
+    .row
+      .col-sm-12.col-lg-12
+        .row
+          .col-sm-12
+            h3 Image Edit/Delete
+            //form(role='form', enctype='multipart/form-data', method='POST')
+            | Gallery Images
+            ul
+              li
+                lable
+                  input(type='radio', name='list', value='')
+                  | The Grasslands
+
+                br
+                img(src='../images/don-haywood.png')
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.
+                button.delete-btn Delete
+                button.edit-btn Edit
+              li
+                img(src='')
+                h5 Paradise Found
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.
+              li
+                img(src='')
+                h5 Smoke On The Water
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.
+              li
+                img(src='')
+                h5 Headline
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.
+
+            | Image to delete
+            br
+            input(type='text', name='imagedelete')
+            a(data-confirm='Are you sure?', data-method='delete', href='/api/gallery/:id', rel='nofollow') Delete
+            br
+            | Image to edit
+            br
+            input(type='text', name='imageedit')
+            a(data-method='get', href='/link-to-resource', rel='nofollow') Edit
+

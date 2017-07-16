@@ -1,3 +1,6 @@
+const Gallery = require('../models/Gallery');
+const mongoose = require('mongoose');
+
 const bluebird = require('bluebird');
 const request = bluebird.promisifyAll(require('request'), { multiArgs: true });
 const cheerio = require('cheerio');
@@ -23,6 +26,10 @@ const foursquare = require('node-foursquare')({
 
 foursquare.Venues = bluebird.promisifyAll(foursquare.Venues);
 foursquare.Users = bluebird.promisifyAll(foursquare.Users);
+
+
+mongoose.Promise = global.Promise;
+
 
 /**
  * GET /api
@@ -559,15 +566,42 @@ exports.getLob = (req, res, next) => {
  */
 
 exports.getFileUpload = (req, res) => {
-  res.render('api/upload', {
-    title: 'File Upload'
+  res.render('api/galleryupload', {
+    title: 'Image Upload'
   });
 };
 
 exports.postFileUpload = (req, res) => {
-  req.flash('success', { msg: 'File was uploaded successfully.' });
-  res.redirect('/api/upload');
+    // req.flash('success', { msg: 'File was uploaded successfully.' });
+  const postData = new Gallery({imagetitle: req.body.imagetitle, filename: req.file.filename, description: req.body.description});
+  console.log(postData);
+  postData.save()
+      .then(item => {
+          console.log(postData);
+        // res.send('Post saved to database');
+      })
+      .catch(err => {
+        res.status(400).send('unable to save post');
+      });
+   res.redirect('/api/upload');
 };
+/**
+ * DELETE /api/gallery/:id
+ * Gallery API
+ */
+exports.deleteGalleryId = (req, res) => {
+    console.log(req.params.id);
+  //     .findByIdAndRemove(req.params.id)
+  //     .exec()
+  //     .then() => {
+  //       res.status(204).send('Entry deleted')
+  //     }
+  //   .catch(err => {
+  //     console.error(err);
+  //     res.status(500).send('Unable to delete')
+  //   })
+
+  };
 
 /**
  * GET /api/pinterest

@@ -1,87 +1,147 @@
 extends layout
 
 block content
-    .container(style='margin-top:10px;')
-        .row.form-group
-            .col-xs-12.col-md-6
-                .panel.panel-default
-                    .panel-image
-                        img.panel-image-preview(src='images/fade.jpg')
-                        label(for='toggle-1')
-                    input#toggle-1.panel-image-toggle(type='checkbox')
-                    .panel-body
-                        h4 My Image
-                        p
-                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
-                    .panel-footer.text-center
-                        a(href='#download')
-                            span.glyphicon.glyphicon-download
-                        a(href='#facebook')
-                            span.fa.fa-facebook
-                        a(href='#twitter')
-                            span.fa.fa-twitter
-                        a(href='#share')
-                            span.glyphicon.glyphicon-share-alt
-            .col-xs-12.col-md-6
-                .panel.panel-default
-                    .panel-image.hide-panel-body
-                        img.panel-image-preview(src='images/fade.jpg')
-                        label(for='toggle-2')
-                    input#toggle-2.panel-image-toggle(type='checkbox')
-                    .panel-body
-                        h4 Title of Image
-                        p
-                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
-                    .panel-footer.text-center
-                        a(href='#download')
-                            span.glyphicon.glyphicon-download
-                        a(href='#facebook')
-                            span.fa.fa-facebook
-                        a(href='#twitter')
-                            span.fa.fa-twitter
-                        a(href='#share')
-                            span.glyphicon.glyphicon-share-alt
-            .row.form-group
-            .col-xs-12.col-md-6
-                .panel.panel-default
-                    .panel-heading
-                        h3.panel-title You can even have a Panel Title
-                    .panel-image.hide-panel-body
-                        img.panel-image-preview(src='images/fade.jpg')
-                        label(for='toggle-3')
-                    input#toggle-3.panel-image-toggle(type='checkbox')
-                    .panel-body
-                        h4 Title of Image
-                        p
-                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
-                    .panel-footer.text-center
-                        a(href='#download')
-                            span.glyphicon.glyphicon-download
-                        a(href='#facebook')
-                            span.fa.fa-facebook
-                        a(href='#twitter')
-                            span.fa.fa-twitter
-                        a(href='#share')
-                            span.glyphicon.glyphicon-share-alt
-            .col-xs-12.col-md-6
-                .panel.panel-default
-                    .panel-image
-                        img.panel-image-preview(src='images/fade.jpg')
-                        label(for='toggle-4')
-                    input#toggle-4.panel-image-toggle(type='checkbox', checked='')
-                    .panel-body
-                        h4 Show the Description by default!
-                        p
-                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
-                    .panel-footer.text-center
-                        a(href='#download')
-                            span.glyphicon.glyphicon-download
-                        a(href='#facebook')
-                            span.fa.fa-facebook
-                        a(href='#twitter')
-                            span.fa.fa-twitter
-                        a(href='#share')
-                            span.glyphicon.glyphicon-share-alt
+    .container.gallery-container
+        h1.text-center Bootstrap 3 Gallery
+        p.page-description.text-center Clean Layout With Minimal Styles
+        .tz-gallery
+            .row
+                .col-sm-6.col-md-4
+                    .thumbnail
+                        a.lightbox(href='images/fade.jpg')
+                            img(src='images/fade.jpg', alt='myimage')
+                        .caption
+                            h3 Thumbnail label
+                            p
+                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                .col-sm-6.col-md-4
+                    .thumbnail
+                        a.lightbox(href='images/jennifer-steagall.jpeg')
+                            img(src='images/jennifer-steagall.jpeg', alt='Bridge')
+                        .caption
+                            h3 Thumbnail label
+                            p
+                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                .col-sm-6.col-md-4
+                    .thumbnail
+                        a.lightbox(href='images/indigo-pearl-title-slide3.jpg')
+                            img(src='images/indigo-pearl-title-slide3.jpg', alt='Tuneel')
+                        .caption
+                            h3 Thumbnail label
+                            p
+                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                .col-sm-6.col-md-4
+                    .thumbnail
+                        a.lightbox(href='../images/coast.jpg')
+                            img(src='../images/coast.jpg', alt='Coast')
+                        .caption
+                            h3 Thumbnail label
+                            p
+                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                .col-sm-6.col-md-4
+                    .thumbnail
+                        a.lightbox(href='../images/rails.jpg')
+                            img(src='../images/rails.jpg', alt='Rails')
+                        .caption
+                            h3 Thumbnail label
+                            p
+                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                .col-sm-6.col-md-4
+                    .thumbnail
+                        a.lightbox(href='../images/traffic.jpg')
+                            img(src='../images/traffic.jpg', alt='Traffic')
+                        .caption
+                            h3 Thumbnail label
+                            p
+                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    //script(src='https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js')
+    //script.
+    //    baguetteBox.run('.tz-gallery');
+
+
+
+
+    //.container(style='margin-top:10px;')
+    //    .row.form-group
+    //        .col-xs-12.col-md-6
+    //            .panel.panel-default
+    //                .panel-image
+    //                    img.panel-image-preview(src='images/fade.jpg')
+    //                    label(for='toggle-1')
+    //                input#toggle-1.panel-image-toggle(type='checkbox')
+    //                .panel-body
+    //                    h4 My Image
+    //                    p
+    //                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
+    //                .panel-footer.text-center
+    //                    a(href='#download')
+    //                        span.glyphicon.glyphicon-download
+    //                    a(href='#facebook')
+    //                        span.fa.fa-facebook
+    //                    a(href='#twitter')
+    //                        span.fa.fa-twitter
+    //                    a(href='#share')
+    //                        span.glyphicon.glyphicon-share-alt
+    //        .col-xs-12.col-md-6
+    //            .panel.panel-default
+    //                .panel-image.hide-panel-body
+    //                    img.panel-image-preview(src='images/fade.jpg')
+    //                    label(for='toggle-2')
+    //                input#toggle-2.panel-image-toggle(type='checkbox')
+    //                .panel-body
+    //                    h4 Title of Image
+    //                    p
+    //                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
+    //                .panel-footer.text-center
+    //                    a(href='#download')
+    //                        span.glyphicon.glyphicon-download
+    //                    a(href='#facebook')
+    //                        span.fa.fa-facebook
+    //                    a(href='#twitter')
+    //                        span.fa.fa-twitter
+    //                    a(href='#share')
+    //                        span.glyphicon.glyphicon-share-alt
+    //        .row.form-group
+    //        .col-xs-12.col-md-6
+    //            .panel.panel-default
+    //                .panel-heading
+    //                    h3.panel-title You can even have a Panel Title
+    //                .panel-image.hide-panel-body
+    //                    img.panel-image-preview(src='images/fade.jpg')
+    //                    label(for='toggle-3')
+    //                input#toggle-3.panel-image-toggle(type='checkbox')
+    //                .panel-body
+    //                    h4 Title of Image
+    //                    p
+    //                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
+    //                .panel-footer.text-center
+    //                    a(href='#download')
+    //                        span.glyphicon.glyphicon-download
+    //                    a(href='#facebook')
+    //                        span.fa.fa-facebook
+    //                    a(href='#twitter')
+    //                        span.fa.fa-twitter
+    //                    a(href='#share')
+    //                        span.glyphicon.glyphicon-share-alt
+    //        .col-xs-12.col-md-6
+    //            .panel.panel-default
+    //                .panel-image
+    //                    img.panel-image-preview(src='images/fade.jpg')
+    //                    label(for='toggle-4')
+    //                input#toggle-4.panel-image-toggle(type='checkbox', checked='')
+    //                .panel-body
+    //                    h4 Show the Description by default!
+    //                    p
+    //                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in lobortis nisl, vitae iaculis sapien. Phasellus ultrices gravida massa luctus ornare. Suspendisse blandit quam elit, eu imperdiet neque semper et.
+    //                .panel-footer.text-center
+    //                    a(href='#download')
+    //                        span.glyphicon.glyphicon-download
+    //                    a(href='#facebook')
+    //                        span.fa.fa-facebook
+    //                    a(href='#twitter')
+    //                        span.fa.fa-twitter
+    //                    a(href='#share')
+    //                        span.glyphicon.glyphicon-share-alt
 
 
 
