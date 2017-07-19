@@ -13,7 +13,7 @@ block content
     h2 Gallery Dashboard
     br
     .row
-      .col-sm-12.col-lg-6
+      .col-sm-12.col-md-6.col-lg-6
         h3 Image Upload
         form(role='form', enctype='multipart/form-data', method='POST')
           | Title:
@@ -25,54 +25,33 @@ block content
           textarea(name='description', rows='6', cols='40')
           .form-group
             label.control-label File Input
-            input(type='file', name='myFile')
+            input(type='file', name='myFile' onchange='readURL(this);')
           button.btn.btn-primary(type='submit') Submit
-      .col-sm-12.col-lg-6
+      .col-sm-12.col-md-6.col-lg-6
         p Upload Preview
-        img(src='' alt='upload image')
+        img#preview-thumbnail(src='#' alt='upload image')
     br
+    // ###############################################################################################
+
     .row
       .col-sm-12.col-lg-12
         .row
+          //span #{images}
+          //each val in images
+          //  span= val.imagetitle
+          //  span jdf;lkajsdlfkajsd
           .col-sm-12
-            h3 Image Edit/Delete
-            //form(role='form', enctype='multipart/form-data', method='POST')
-            | Gallery Images
-            ul
-              li
-                lable
-                  input(type='radio', name='list', value='')
-                  | The Grasslands
+            h3 Gallery Edit/Delete
+            ul.render-data
+              each image in images
+                li.edit-gallery.col-sm-6.col-md-4.col-lg-4
+                  lable
+                  h5= "Title: "+ image.imagetitle
+                  img.edit-thumbnail(src="http://localhost:3000/images/uploads/"+ image.filename)
+                  button.delete-btn Delete
+                  button.edit-btn Edit
+                  button.submit-btn.invisible Submit
+                  p.idtext.invisible= image._id
 
-                br
-                img(src='../images/don-haywood.png')
-                p
-                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.
-                button.delete-btn Delete
-                button.edit-btn Edit
-              li
-                img(src='')
-                h5 Paradise Found
-                p
-                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.
-              li
-                img(src='')
-                h5 Smoke On The Water
-                p
-                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.
-              li
-                img(src='')
-                h5 Headline
-                p
-                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.
-
-            | Image to delete
-            br
-            input(type='text', name='imagedelete')
-            a(data-confirm='Are you sure?', data-method='delete', href='/api/gallery/:id', rel='nofollow') Delete
-            br
-            | Image to edit
-            br
-            input(type='text', name='imageedit')
-            a(data-method='get', href='/link-to-resource', rel='nofollow') Edit
+    // ###############################################################################################
 

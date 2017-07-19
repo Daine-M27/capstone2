@@ -23,7 +23,7 @@ const multer = require('multer');
 // added for gallery file extensions
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, 'uploads/');
+    cb(null, 'public/images/uploads');
   },
   filename(req, file, cb) {
     cb(null, Date.now() + path.extname(file.originalname));
@@ -102,7 +102,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 app.use((req, res, next) => {
-  if (req.path === '/api/upload') {
+  if (req.path === '/api/upload' || 'api/gallery/:id') {
     next();
   } else {
     lusca.csrf()(req, res, next);
@@ -141,8 +141,8 @@ app.get('/forgot', userController.getForgot);
 app.post('/forgot', userController.postForgot);
 app.get('/reset/:token', userController.getReset);
 app.post('/reset/:token', userController.postReset);
-app.get('/signup', passportConfig.isAuthenticated, userController.getSignup);
-app.post('/signup', passportConfig.isAuthenticated, userController.postSignup);
+app.get('/signup',  userController.getSignup);
+app.post('/signup',  userController.postSignup);
 app.get('/contact', contactController.getContact);
 app.post('/contact', contactController.postContact);
 app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
@@ -161,8 +161,8 @@ app.get('/api', apiController.getApi);
 // app.get('/api/gallery', passportConfig.isAuthenticated, galleryController.postGallery);
 // app.post('/api/galleryUpload', passportConfig.isAuthenticated, galleryController.uploadGallery);
 // app.get('/api/gallery/:id', galleryController.getGalleryID);
-// app.post('/api/gallery/:id', passportConfig.isAuthenticated, galleryController.editGallery);
-app.delete('/api/gallery/:id', apiController.deleteGalleryId);
+app.put('/api/gallery/:id', passportConfig.isAuthenticated, apiController.editGallery);
+app.post('/api/gallery/:id', apiController.deleteGalleryId);
 
 // app.get('/api/lastfm', apiController.getLastfm);
 // app.get('/api/nyt', apiController.getNewYorkTimes);

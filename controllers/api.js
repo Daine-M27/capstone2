@@ -565,43 +565,67 @@ exports.getLob = (req, res, next) => {
  * File Upload API example.
  */
 
-exports.getFileUpload = (req, res) => {
-  res.render('api/galleryupload', {
-    title: 'Image Upload'
-  });
-};
 
+exports.getFileUpload = (req, res) => {
+  Gallery
+        .find().exec().then((galleries) => {
+          res.render('api/galleryupload', {
+            images: galleries
+          });
+          console.log(galleries);
+        })
+        .catch(
+            (err) => {
+              console.error(err);
+               // res.status(500).json({error: 'No data available'});
+            });
+    // res.render('api/galleryupload',{
+    //     title: 'Image Upload'
+    // });
+};
 exports.postFileUpload = (req, res) => {
     // req.flash('success', { msg: 'File was uploaded successfully.' });
-  const postData = new Gallery({imagetitle: req.body.imagetitle, filename: req.file.filename, description: req.body.description});
-  console.log(postData);
+  const postData = new Gallery({ imagetitle: req.body.imagetitle, filename: req.file.filename, description: req.body.description });
   postData.save()
-      .then(item => {
-          console.log(postData);
-        // res.send('Post saved to database');
+      .then((item) => {
+        console.log(postData);
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(400).send('unable to save post');
       });
-   res.redirect('/api/upload');
+  res.redirect('/api/upload');
 };
 /**
- * DELETE /api/gallery/:id
+ * POST /api/gallery/:id
  * Gallery API
  */
 exports.deleteGalleryId = (req, res) => {
-    console.log(req.params.id);
-  //     .findByIdAndRemove(req.params.id)
-  //     .exec()
-  //     .then() => {
-  //       res.status(204).send('Entry deleted')
-  //     }
-  //   .catch(err => {
-  //     console.error(err);
-  //     res.status(500).send('Unable to delete')
-  //   })
+    // const id = req.params.id;
+    // console.log(id);
+  Gallery
+        .findByIdAndRemove(req.params.id).exec().then((item) => {
+          res.status(204).send('Entry deleted');
+        })
+        .catch((err) => {
+          console.error(err);
+          res.status(500).send('Unable to delete');
+        });
 
-  };
+  res.redirect('/api/upload');
+};
+
+
+/**
+ * PUT /api/gallery/:id
+ * Gallery API
+ */
+exports.editGallery = (req, res) => {
+    Gallery
+        .findByIDAndUpdate(req.params.id)
+}
+
+
+
 
 /**
  * GET /api/pinterest

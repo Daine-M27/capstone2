@@ -7,7 +7,16 @@ const gallerySchema = new mongoose.Schema({
     created: {type: Date, default: Date.now}
 });
 
+gallerySchema.methods.apiRepr = function() {
 
+    return {
+        id: this._id,
+        imagetitle: this.imagetitle,
+        description: this.description,
+        filename: this.filename,
+        created: this.created
+    };
+}
 
 const Gallery = mongoose.model('Gallery', gallerySchema);
 
