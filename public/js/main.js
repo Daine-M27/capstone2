@@ -1,3 +1,21 @@
+jQuery.each( [ "put", "delete" ], function( i, method ) {
+    jQuery[ method ] = function( url, data, callback, type ) {
+        if ( jQuery.isFunction( data ) ) {
+            type = type || callback;
+            callback = data;
+            data = undefined;
+        }
+
+        return jQuery.ajax({
+            url: url,
+            type: method,
+            dataType: type,
+            data: data,
+            success: callback
+        });
+    };
+});
+
 $(document).ready(() => {
     // Initialize Tooltip
     //   $('[data-toggle="tooltip"]').tooltip();
@@ -22,14 +40,48 @@ $(document).ready(() => {
 
     $(document).on('click', '.delete-btn', function () {
         const idtext = $(this).siblings("p.idtext").text();
-        // console.log(idtext);
-        $.post('/api/gallery/' + idtext);
+        const sure = confirm("Are you sure?")
+            if(sure) {
+                $.post('/api/gallery/' + idtext, function(a,b){
+                    window.location.reload();
+                });
+            } else {
+
+            }
+
     });
 
-})
-    // $(document).on('click', '.edit-btn',function(){
-    //     $(this).siblings('input#imagetitle').prop('disabled', !$(this).siblings('input#imagetitle').prop('disabled'));
-    // };
+    $(document).on('click', '.edit-btn',function(){
+        $(this).closest('li#edit-gallery').toggleClass('hidden');
+        $(this).closest('li#edit-gallery').next('li').toggleClass('hidden');
+
+
+    });
+    //
+    $(document).on('click', '.cancel-edit',function(e){
+        $(this).closest('li#edit-form').toggleClass('hidden');
+        $(this).closest('li#edit-form').prev().toggleClass('hidden');
+
+
+    });
+
+    // edit title and description
+    $(document).on('click', '.submit-edit', function(e){
+        e.preventDefault();
+        const idtext = $(this).siblings("p.idtext").text();
+        const titleField = $(this).siblings('form.edit-fields').children('input.image-title').val();
+        const descriptionField = $(this).siblings('form.edit-fields').children('textarea.image-description').val();
+        $.put('/api/gallery/'+ idtext + '/'+ titleField +'/'+ descriptionField, function(a,b){
+            window.location.reload();
+        });
+        console.log(titleField);
+        console.log(descriptionField);
+    });
+
+});
+
+
+
 
 
 

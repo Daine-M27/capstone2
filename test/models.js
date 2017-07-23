@@ -1,8 +1,17 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
 require('sinon-mongoose');
+const app = require('../app');
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const mongoose = require('mongoose');
+const should = chai.should();
 
 const User = require('../models/User');
+const Gallery = require('../models/Gallery');
+
+
+chai.use(chaiHttp);
 
 describe('User Model', () => {
   it('should create a new user', (done) => {
@@ -102,4 +111,29 @@ describe('User Model', () => {
       done();
     });
   });
+});
+
+
+//***********************************************************************************************************
+// Gallery API Tests
+
+//adds data to gallery posts
+
+function generateGalleryPostData(){
+  return {
+    imagetitle: "testTitle",
+    filename: "testFile.jpg"
+  }
+};
+
+describe('Gallery Model', () => {
+  it('should create a new gallery object', (done) => {
+    const newPost = generateGalleryPostData();
+    return chai.request(app)
+        .post('/api/upload')
+        .send('newPost')
+        .then(function(res){
+          res.should.have.status(302)
+        })
+  })
 });

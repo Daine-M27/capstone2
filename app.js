@@ -161,8 +161,8 @@ app.get('/api', apiController.getApi);
 // app.get('/api/gallery', passportConfig.isAuthenticated, galleryController.postGallery);
 // app.post('/api/galleryUpload', passportConfig.isAuthenticated, galleryController.uploadGallery);
 // app.get('/api/gallery/:id', galleryController.getGalleryID);
-app.put('/api/gallery/:id', passportConfig.isAuthenticated, apiController.editGallery);
-app.post('/api/gallery/:id', apiController.deleteGalleryId);
+app.put('/api/gallery/:id/:title/:desc', passportConfig.isAuthenticated, apiController.editGallery);
+app.post('/api/gallery/:id', passportConfig.isAuthenticated, apiController.deleteGalleryId);
 
 // app.get('/api/lastfm', apiController.getLastfm);
 // app.get('/api/nyt', apiController.getNewYorkTimes);

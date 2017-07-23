@@ -1,18 +1,17 @@
 extends layout
 
 block content
-    .container.gallery-container
+    .container
         h1.text-center Indigo Pearl Gallery
         p.page-description.text-center Views from around the pearl.
-        .tz-gallery
             .row
             each image in images
-                    .col-sm-6.col-md-4.col-lg-4
+                    .col-sm-6.col-md-4.col-lg-4.gallery-object
                         .thumbnail
                             a.lightbox(href='images/uploads/' + image.filename)
                                 img(src='images/uploads/'+ image.filename, alt='myimage')
-                            .caption
-                                h5= image.imagetitle
+                            .gallery-caption
+                                h3= image.imagetitle
                                 p= image.description
 
 

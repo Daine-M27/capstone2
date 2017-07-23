@@ -25,7 +25,7 @@ describe('GET /signup', () => {
   });
 });
 
-describe('GET /api', () => {
+describe('GET /api/upload', () => {
   it('should return 200 OK', (done) => {
     request(app)
       .get('/api')
@@ -47,4 +47,12 @@ describe('GET /random-url', () => {
       .get('/reset')
       .expect(404, done);
   });
+});
+
+describe('GET /gallery', () => {
+    it('should return 200 OK', (done) => {
+        request(app)
+            .get('/gallery')
+            .expect(200, done);
+    });
 });

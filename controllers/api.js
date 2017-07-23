@@ -604,29 +604,38 @@ exports.deleteGalleryId = (req, res) => {
     // console.log(id);
   Gallery
         .findByIdAndRemove(req.params.id).exec().then((item) => {
-          res.status(204).send('Entry deleted');
+          res.send(200);
         })
         .catch((err) => {
           console.error(err);
-          res.status(500).send('Unable to delete');
+          res.status(500);
         });
-
-  res.redirect('/api/upload');
 };
-
-
-/**
- * PUT /api/gallery/:id
- * Gallery API
- */
+// /**
+//  * PUT /api/gallery/:id
+//  * Gallery API
+//  */
 exports.editGallery = (req, res) => {
-    Gallery
-        .findByIDAndUpdate(req.params.id)
-}
-
-
-
-
+    console.log('this is the PUT route response from submit edit');
+    Gallery.findByIdAndUpdate(req.params.id, {$set: {imagetitle: req.params.title, description: req.params.desc}}).then(() => {
+        res.sendStatus(200);
+    }).catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    })
+        // .then(() => {
+        // res.send(200);
+    // }).catch((err)) => {
+    //     console.error(err);
+    //     res.status(500).send('Unable to edit')
+    // };
+    // const idData = req.params.id;
+    // const titleText = req.params.title;
+    // const descText = req.params.desc;
+    // console.log(idData);
+    // console.log(titleText);
+    // console.log(descText);
+};
 /**
  * GET /api/pinterest
  * Pinterest API example.
