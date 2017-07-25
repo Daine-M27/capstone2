@@ -46,12 +46,12 @@ block content
               each image in images
                 li#edit-gallery.col-sm-6.col-md-4.col-lg-4
                   h5= "Title: "+ image.imagetitle
-                  img.edit-thumbnail(src="/images/uploads/"+ image.filename)
+                  img.edit-thumbnail(src="../images/uploads/"+ image.filename)
                   button.delete-btn Delete
                   button.edit-btn Edit
                   p.idtext.invisible= image._id
                 li#edit-form.col-sm-6.col-md-4.col-lg-4.hidden
-                  img.edit-thumbnail(src="/images/uploads/"+ image.filename)
+                  img.edit-thumbnail(src="../images/uploads/"+ image.filename)
                   form.edit-fields(role= 'form', enctype= 'multipart/form-data', method='POST')
                     input.image-title(type='text', name='imagetitle', value= image.imagetitle)
                     textarea.image-description(name='description', rows='4', cols='25')= image.description
