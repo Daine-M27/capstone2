@@ -4,7 +4,7 @@ block content
 
   .container
     h2 Profile Information
-  .col-sm-12.col-md-6.col-lg-6
+    .col-sm-12.col-md-6.col-lg-6
     form.form-horizontal(action='/account/profile', method='POST')
 
       input(type='hidden', name='_csrf', value=_csrf)
@@ -46,7 +46,7 @@ block content
             i.fa.fa-pencil
             | Update Profile 1
 
-  .page-header.col-sm-12.col-md-6.col-lg-6
+  .container
     h3 Change Password
 
     form.form-horizontal(action='/account/password', method='POST')
