@@ -78,10 +78,6 @@ $(document).ready(() => {
         console.log(descriptionField);
     });
 
-   $(document).on('click', '#edit-gallery-btn', function(e){
-       e.preventDefault();
-       $.get('/api/upload');
-   })
 
 });
 
