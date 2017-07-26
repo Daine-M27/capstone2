@@ -78,11 +78,11 @@ $(document).ready(() => {
         console.log(descriptionField);
     });
 
-    $(document).on('click', '.logout-btn',function(e){
-        $.get('/logout');
-
-
-    });
+    // $(document).on('click', '.logout-btn',function(e){
+    //     $.get('/logout');
+    //
+    //
+    // });
 
 
 });
