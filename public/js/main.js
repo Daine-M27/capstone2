@@ -78,6 +78,9 @@ $(document).ready(() => {
         console.log(descriptionField);
     });
 
+   $(document).on('click', '.edit-gallery', function(){
+       $.get('/api/upload');
+   });
 
 });
 
