@@ -16,18 +16,6 @@ jQuery.each( [ "put", "delete" ], function( i, method ) {
     };
 });
 
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function (e) {
-            $('#upload-preview')
-                .attr('src', e.target.result);
-        };
-
-        reader.readAsDataURL(input.files[0]);
-    }
-}
 
 $(document).ready(() => {
     // Initialize Tooltip
@@ -50,16 +38,23 @@ $(document).ready(() => {
     //       window.location.hash = hash;
     //     });
     //   });
-    $(document).on('change', 'myfile', function () {
-        let reader = new FileReader();
+
+
+
+
+
+    // file upload preview
+    $(document).on('change', '#myfile', function () {
+        const reader = new FileReader();
 
         reader.onload = function (e) {
-            // get loaded data and render thumbnail.
-            document.getElementById("upload-preview").src = e.target.result;
+            const dataURL = reader.result;
+
+        $(".upload-preview").attr('src', dataURL);
         };
 
         // read the image file as a data URL.
-        reader.readAsDataURL(this.files[0]);
+        reader.readAsDataURL(file);
     });
 
     $(document).on('click', '.delete-btn', function () {
