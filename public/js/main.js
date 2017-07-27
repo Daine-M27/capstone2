@@ -54,7 +54,7 @@ $(document).ready(() => {
         };
 
         // read the image file as a data URL.
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(reader);
     });
 
     $(document).on('click', '.delete-btn', function () {
