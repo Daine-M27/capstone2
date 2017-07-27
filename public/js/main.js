@@ -38,23 +38,34 @@ $(document).ready(() => {
     //       window.location.hash = hash;
     //     });
     //   });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 
 
 
 
     // file upload preview
-    $(document).on('change', '#myfile', function () {
-        const reader = new FileReader();
+    $(document).on('change', '#myfile', function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-        reader.onload = function (e) {
-            const dataURL = reader.result;
+            reader.onload = function (e) {
+                $('.upload-preview')
+                    .attr('src', e.target.result);
+            };
 
-        $(".upload-preview").attr('src', dataURL);
-        };
-
-        // read the image file as a data URL.
-        reader.readAsDataURL(reader);
+            reader.readAsDataURL(input.files[0]);
+        }
     });
 
     $(document).on('click', '.delete-btn', function () {
