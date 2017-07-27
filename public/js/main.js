@@ -50,6 +50,17 @@ $(document).ready(() => {
     //       window.location.hash = hash;
     //     });
     //   });
+    $(document).on('change', 'myfile', function () {
+        let reader = new FileReader();
+
+        reader.onload = function (e) {
+            // get loaded data and render thumbnail.
+            document.getElementById("upload-preview").src = e.target.result;
+        })
+
+        // read the image file as a data URL.
+        reader.readAsDataURL(this.files[0]);
+    };
 
     $(document).on('click', '.delete-btn', function () {
         const idtext = $(this).siblings("p.idtext").text();
