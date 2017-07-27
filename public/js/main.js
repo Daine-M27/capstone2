@@ -38,18 +38,7 @@ $(document).ready(() => {
     //       window.location.hash = hash;
     //     });
     //   });
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
 
-            reader.onload = function (e) {
-                $('#blah')
-                    .attr('src', e.target.result);
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
 
 
 
@@ -61,9 +50,8 @@ $(document).ready(() => {
             const reader = new FileReader();
 
             reader.onload = function (e) {
-                console.log(e.target.result);
-                // $('img.upload-preview')
-                //     .attr('src', e.target.result);
+                $('img.upload-preview')
+                    .attr('src', e.target.result);
             };
 
             reader.readAsDataURL(input.files[0]);
