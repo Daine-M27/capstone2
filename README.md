@@ -1,3 +1,29 @@
+--- Added by Daine Marshall ---
+
+Create a gallery API and user interfaces that allow a user to upload photos with titles and descriptions to a client site.
+Created the following files or additions to files:
+ controllers/api.js (.getFileUpload, .postFileUpload, .deleteGalleryId, .editGallery)
+ models/Gallery.js
+ public/css/themes/_custom.scss
+ views/gallery.pug
+ views/home.pug
+ views/api/galleryupload.pug
+ views/account/profile.pug (added logout/site controls
+ public/js/main.js
+
+Added following routes to app.js
+    app.get('/gallery', galleryController.getGallery);
+    app.put('/api/gallery/:id/:title/:desc', passportConfig.isAuthenticated, apiController.editGallery);
+    app.post('/api/gallery/:id', passportConfig.isAuthenticated, apiController.deleteGalleryId);
+    app.get('/api/upload', passportConfig.isAuthenticated, apiController.getFileUpload);
+    app.post('/api/upload', passportConfig.isAuthenticated, upload.single('myFile'), apiController.postFileUpload);
+
+
+
+
+--- /Added by Daine Marshall ---
+
+
 ![](https://lh4.googleusercontent.com/-PVw-ZUM9vV8/UuWeH51os0I/AAAAAAAAD6M/0Ikg7viJftQ/w1286-h566-no/hackathon-starter-logo.jpg)
 Hackathon Starter 
 =======================

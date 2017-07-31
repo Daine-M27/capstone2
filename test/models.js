@@ -9,6 +9,8 @@ const should = chai.should();
 
 const User = require('../models/User');
 const Gallery = require('../models/Gallery');
+const request = require('request');
+const rest = require('restler');
 
 
 chai.use(chaiHttp);
@@ -108,7 +110,8 @@ describe('User Model', () => {
       userMock.restore();
       expect(err).to.be.null;
       expect(result.nRemoved).to.equal(1);
-      done();
+      done()
+        ;
     });
   });
 });
@@ -119,21 +122,22 @@ describe('User Model', () => {
 
 //adds data to gallery posts
 
-function generateGalleryPostData(){
-  return {
-    imagetitle: "testTitle",
-    filename: "testFile.jpg"
-  }
-};
 
 describe('Gallery Model', () => {
   it('should create a new gallery object', (done) => {
-    const newPost = generateGalleryPostData();
-    return chai.request(app)
-        .post('/api/upload')
-        .send('newPost')
-        .then(function(res){
-          res.should.have.status(302)
-        })
-  })
+      fs.stat("../images/uploads/test.jpg", function(err, stats) {
+          restler.post("http://posttestserver.com/post.php", {
+              multipart: true,
+              data: {
+                  "imagetitle": "testtitle",
+                  "filename": rest.file("../images/uploads/test.jpg", null, stats.size, null, "image/jpg")
+              }
+          }).on("complete", function(data) {
+              console.log(data);
+          });
+      });
+      done();
+  });
 });
+
+
