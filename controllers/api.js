@@ -568,7 +568,8 @@ exports.getLob = (req, res, next) => {
 
 exports.getFileUpload = (req, res) => {
   Gallery
-        .find().exec().then((galleries) => {
+        .find().exec()
+        .then((galleries) => {
           res.render('api/galleryupload', {
             images: galleries
           });

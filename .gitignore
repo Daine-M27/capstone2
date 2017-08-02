@@ -1,3 +1,5 @@
 .idea/
 public/images/uploads/
 node_modules
+.env.example
+.env.local

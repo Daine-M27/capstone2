@@ -17,18 +17,18 @@ describe('GET /login', () => {
   });
 });
 
-describe('GET /signup', () => {
-  it('should return 200 OK', (done) => {
-    request(app)
-      .get('/signup')
-      .expect(200, done);
-  });
-});
+// describe('GET /signup', () => {
+//   it('should return 200 OK', (done) => {
+//     request(app)
+//       .get('/signup')
+//       .expect(200, done);
+//   });
+// });
 
 describe('GET /api/upload', () => {
   it('should return 200 OK', (done) => {
     request(app)
-      .get('/api')
+      .get('/api/upload')
       .expect(200, done);
   });
 });

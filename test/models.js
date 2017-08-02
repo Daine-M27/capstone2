@@ -11,6 +11,7 @@ const User = require('../models/User');
 const Gallery = require('../models/Gallery');
 const request = require('request');
 const rest = require('restler');
+const fs = require('fs')
 
 
 chai.use(chaiHttp);
@@ -138,6 +139,10 @@ describe('Gallery Model', () => {
       });
       done();
   });
+
+  // it('should edit the title and description of a gallery object', (done) => {
+  //
+  // })
 });
 
 
