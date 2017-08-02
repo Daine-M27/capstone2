@@ -19,6 +19,9 @@ Added following routes to app.js
     app.post('/api/upload', passportConfig.isAuthenticated, upload.single('myFile'), apiController.postFileUpload);
 
 
+<img src="screenshots/Screen Shot 1.png"/>
+<img src="screenshots/Screen Shot 2.png"/>
+
 
 
 --- /Added by Daine Marshall ---
