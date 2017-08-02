@@ -20,7 +20,13 @@ Added following routes to app.js
 
 
 <img src="screenshots/Screen Shot 1.png"/>
+
+
 <img src="screenshots/Screen Shot 2.png"/>
+
+
+Technologies used:
+Node, Express, MongoDB, jade/pug, docker, dokku, bootstrap css
 
 
 
