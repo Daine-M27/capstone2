@@ -44,7 +44,7 @@ block content
       .row.text-center
         .col-sm-4
           .thumbnail
-            img(src='images/don-haywood.png', alt='Don Haywood', width='400', height='100')
+            img(src='images/don-haywood.png', alt='Don Haywood', width='100%', height='auto')
             p.font-indigo
               strong Don Haywood
             p.pspace
@@ -53,7 +53,7 @@ block content
             button.btn(data-toggle='modal', data-target='#myModal') More Info
         .col-sm-4
           .thumbnail
-            img(src='images/sandra-gittleman.png', alt='Sandra Gettleman', width='400', height='100')
+            img(src='images/sandra-gittleman.png', alt='Sandra Gettleman', width='100%', height='auto')
             p.font-indigo
               strong Sandra Gettleman
             p.pspace
@@ -62,7 +62,7 @@ block content
             button.btn(data-toggle='modal', data-target='#myModal') More Info
         .col-sm-4
           .thumbnail
-            img(src='images/jennifer-steagall.jpeg', alt='Jennifer Steagall', width='400', height='100')
+            img(src='images/jennifer-steagall.jpeg', alt='Jennifer Steagall', width='100%', height='auto')
             p.font-indigo
               strong Jennifer Steagall
             p.pspace
@@ -121,23 +121,34 @@ block content
           span.glyphicon.glyphicon-phone
           | Phone: (704) 221.3769
         p
-          span.glyphicon.glyphicon-envelope
-          | Email: mail@mail.com
+            a.gray(href='https://www.facebook.com/TheIndigoPearl')
+                i.fa.fa-facebook-square(aria-hidden='true')
+                | &nbsp
+                span Facebook
+        p
+            a.gray(href='https://www.instagram.com/theindigopearl')
+                i.fa.fa-instagram(aria-hidden='true')
+                | &nbsp
+                span Instagram
       .col-md-8
-        .row
-          .col-sm-6.form-group
-            input#name.form-control(name='name', placeholder='Name', type='text', required='')
-          .col-sm-6.form-group
-            input#email.form-control(name='email', placeholder='Email', type='email', required='')
-        textarea#comments.form-control(name='comments', placeholder='Comment', rows='5')
-        br
-        .row
-          .col-md-12.form-group
-            button.btn.pull-right(type='submit') Send
+        form.row(method='POST', action='/contact')
+          .form-group
+            .col-sm-6.col-xs-12
+              input.form-control(id='name', name='name', placeholder='Name', type='text', required='')
+            .col-sm-6.col-xs-12
+              input.form-control(id='email' name='email', placeholder='Email', type='email', required='')
+            br
+          .form-group
+            .col-sm-12
+              textarea.form-control(id='message' name='message', placeholder='Enter message here.', rows='5')
+          .form-group
+            .col-md-12
+              br
+              button.btn.pull-right(type='submit') Send
           br
-      br
 
       .row.text-center
+      br
       #googleMap.col-md-8
       script.
           function myMap() {

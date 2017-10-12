@@ -41,7 +41,6 @@ if (process.env.APP_ENV == "localdev"){
     dotenv.load({ path: '.env.example' });
 };
 
-
 /**
  * Controllers (route handlers).
  */
@@ -146,8 +145,8 @@ app.get('/forgot', userController.getForgot);
 app.post('/forgot', userController.postForgot);
 app.get('/reset/:token', userController.getReset);
 app.post('/reset/:token', userController.postReset);
-app.get('/signup', passportConfig.isAuthenticated, userController.getSignup);
-app.post('/signup', passportConfig.isAuthenticated, userController.postSignup);
+app.get('/signup', userController.getSignup);
+app.post('/signup', userController.postSignup);
 app.get('/contact', contactController.getContact);
 app.post('/contact', contactController.postContact);
 app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
