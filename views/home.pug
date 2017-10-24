@@ -10,18 +10,18 @@ block content
 
     .carousel-inner(role='listbox')
       .item.active
-        img(src='images/indigo-pearl-title-slide2.jpg', alt='The Indigo Pearl Boutique', width='1920', height='1080')
+        img(src='images/homedecor.jpg', alt='The Indigo Pearl Boutique', width='1920', height='1080')
         .carousel-caption
+          h3 Home Decor
       .item
-        img(src='images/indigo-pearl-title-slide.jpg', alt='imageTextHere', width='1920', height='1080')
+        img(src='images/art.jpg', alt='imageTextHere', width='1920', height='1080')
         .carousel-caption
-          h3 title
-          p some text here
+          h3 Artwork
       .item
-        img(src='images/indigo-pearl-title-slide3.jpg', alt='imageTextHere', width='1920', height='1080')
+        img(src='images/accessories.jpg', alt='imageTextHere', width='1920', height='1080')
         .carousel-caption
-          h3 title
-          p some text here
+          h3 Accessories
+
 
     a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
       span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
@@ -32,48 +32,45 @@ block content
 
   #about.container.text-center
     h3 The Indigo Pearl Boutique
-    p
-      em catch phrase or not
-    p
-      | The Indigo Pearl is an artisan boutique that specializes in high-end gifts, and designs of distinction. we offer novelty items and hand crafted products including but not limited to:  jewelry, art,  soaps, and leather products. Our shop also includes unique furniture designs at affordable north carolina prices and other accessories for the home.
+    p The Indigo Pearl is a decorators boutique that specializes in unique furniture designs, hand crafted home decor, jewelry and leather goods.  We regularly showcase crafts and artwork from local and international artisans.  If you are looking for a high-end gift or design of distinction our shop in beautify Waxhaw, NC is loaded with secret treasures to accessorize your space.
     br
 
   #artists.bg-1
     .container
-      h3.text-center SOME OF OUR ARTISTS
+      h3.text-center SOME OF TREASURES
       .row.text-center
         .col-sm-4
           .thumbnail
-            img(src='images/don-haywood.png', alt='Don Haywood', width='100%', height='auto')
+            img(src='images/homedecor.jpg', alt='home decor', width='100%', height='auto')
             p.font-indigo
-              strong Don Haywood
+              strong Home Decor
             p.pspace
-              | Sold all over the US, Don's pieces carry his signature and creation date making each one unique.
+              | text about home decor
           div.btn-space
-            button.btn(data-toggle='modal', data-target='#myModal') More Info
+              a.button(href='/gallery') See More
         .col-sm-4
           .thumbnail
-            img(src='images/sandra-gittleman.png', alt='Sandra Gettleman', width='100%', height='auto')
+            img(src='images/art.jpg', alt='art', width='100%', height='auto')
             p.font-indigo
-              strong Sandra Gettleman
+              strong Artwork
             p.pspace
-              | An incredibly talented artist from New England, whose paintings light up any room.
+              | text about artwork
           div.btn-space
-            button.btn(data-toggle='modal', data-target='#myModal') More Info
+            a.button(href='/gallery') See More
         .col-sm-4
           .thumbnail
-            img(src='images/jennifer-steagall.jpeg', alt='Jennifer Steagall', width='100%', height='auto')
+            img(src='images/accessories.jpg', alt='accessories', width='100%', height='auto')
             p.font-indigo
-              strong Jennifer Steagall
+              strong Home Accessories
             p.pspace
-              | Jennifer uses here passion to create with a variety of mediums like ink, pencil, oils and acrylics.
+              | text about accessories
           div.btn-space
-            button.btn(data-toggle='modal', data-target='#myModal') More Info
+              a.button(href='/gallery') See More
         .buffer
           .row.text-center
             .col-md-12
               h3.text-center.buffer
-                | Local art works on display.
+                | Local works on display.
                 br
                 br
                 |         Come visit us today!

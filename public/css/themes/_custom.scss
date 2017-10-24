@@ -411,3 +411,21 @@ body {
 li a i {
   font-size: 18px !important;
 }
+
+a.button {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  display: inline-block;
+  background-color: #4b0082;
+  color: #ffffff;
+  padding:11px 27px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+
+}
+
+a.button:hover{
+  background-color: #584dee;
+}

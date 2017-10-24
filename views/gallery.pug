@@ -7,13 +7,15 @@ block content
             .row
             each image in images
                 .row
-                    .col-xs-12.gallery-object
+                    .col-xs-2
+                    .col-xs-8.gallery-object
                         .thumbnail
                             a.lightbox(href='images/uploads/' + image.filename)
                                 img(src='images/uploads/'+ image.filename, alt='myimage')
                             .gallery-caption
                                 h3= image.imagetitle
                                 p.text-overflow= image.description
+                    .col-xs-2
 
 
 

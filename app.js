@@ -177,8 +177,8 @@ app.post('/api/gallery/:id', passportConfig.isAuthenticated, apiController.delet
 // app.get('/api/scraping', apiController.getScraping);
 // app.get('/api/twilio', apiController.getTwilio);
 // app.post('/api/twilio', apiController.postTwilio);
-// app.get('/api/clockwork', apiController.getClockwork);
-// app.post('/api/clockwork', apiController.postClockwork);
+app.get('/api/clockwork', apiController.getClockwork);
+app.post('/api/clockwork', apiController.postClockwork);
 // app.get('/api/foursquare', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getFoursquare);
 // app.get('/api/tumblr', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getTumblr);
 // app.get('/api/facebook', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getFacebook);
