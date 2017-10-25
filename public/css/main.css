@@ -2494,4 +2494,6 @@ a.button {
   font-size: 16px; }
 
 a.button:hover {
-  background-color: #584dee; }
+  background-color: #ffffff;
+  color: ##4b0082;
+}
