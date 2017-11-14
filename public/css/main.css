@@ -2496,3 +2496,10 @@ a.button {
 a.button:hover {
   background-color: #ffffff;
   color: #4b0082; }
+
+h3.gallery {
+  letter-spacing: 2px;
+  margin-bottom: 0; }
+
+strong {
+  font-size: 20px; }

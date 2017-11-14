@@ -18,11 +18,11 @@ block content
         form(role='form', enctype='multipart/form-data', method='POST')
           | Title:
           br
-          input(type='text', name='imagetitle')
+          input(type='text', name='imagetitle', maxlength='30')
           br
           | Description:
           br
-          textarea(name='description', rows='6', cols='40')
+          textarea(name='description', rows='6', cols='40', maxlength='60')
           .form-group
             label.control-label File Input
             input(type='file', name='myFile', id='myfile')
@@ -53,8 +53,8 @@ block content
                 li#edit-form.col-sm-6.col-md-4.col-lg-4.hidden
                   img.edit-thumbnail(src="../images/uploads/"+ image.filename)
                   form.edit-fields(role= 'form', enctype= 'multipart/form-data', method='POST')
-                    input.image-title(type='text', name='imagetitle', value= image.imagetitle)
-                    textarea.image-description(name='description', rows='4', cols='25')= image.description
+                    input.image-title(type='text', name='imagetitle', value= image.imagetitle, maxlength='30')
+                    textarea.image-description(name='description', rows='4', cols='25', maxlength='60')= image.description
                   button.submit-edit Submit
                   button.cancel-edit Cancel
                   p.idtext.invisible= image._id

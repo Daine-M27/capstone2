@@ -578,12 +578,11 @@ exports.getFileUpload = (req, res) => {
         .catch(
             (err) => {
               console.error(err);
-               // res.status(500).json({error: 'No data available'});
             });
-    // res.render('api/galleryupload',{
-    //     title: 'Image Upload'
-    // });
 };
+
+
+
 exports.postFileUpload = (req, res) => {
     // req.flash('success', { msg: 'File was uploaded successfully.' });
   const postData = new Gallery({ imagetitle: req.body.imagetitle, filename: req.file.filename, description: req.body.description });
@@ -596,10 +595,16 @@ exports.postFileUpload = (req, res) => {
       });
   res.redirect('/api/upload');
 };
+
+
+
 /**
  * POST /api/gallery/:id
  * Gallery API
  */
+
+
+
 exports.deleteGalleryId = (req, res) => {
     // const id = req.params.id;
     // console.log(id);
@@ -624,19 +629,11 @@ exports.editGallery = (req, res) => {
       console.error(err);
       res.sendStatus(500);
     })
-        // .then(() => {
-        // res.send(200);
-    // }).catch((err)) => {
-    //     console.error(err);
-    //     res.status(500).send('Unable to edit')
-    // };
-    // const idData = req.params.id;
-    // const titleText = req.params.title;
-    // const descText = req.params.desc;
-    // console.log(idData);
-    // console.log(titleText);
-    // console.log(descText);
 };
+
+
+
+
 /**
  * GET /api/pinterest
  * Pinterest API example.
